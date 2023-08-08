@@ -1,0 +1,20 @@
+/*
+    NAME: Sai Siddarth Peta
+    Roll Number: CS20B059
+    Course: CS3205 Jan. 2023 semester
+    Lab number: 5
+    Date of submission: 28-04-2023
+    I confirm that the source file is entirely written by me without resorting to any dishonest means.
+    Website(s) that I used for basic socket programming code are:
+    URL(s): None
+*/
+
+Instructions to Run the Program and it is written in Python:
+
+To Run the Program:
+--> Use the Command "make run" to run the program 
+                        (or)
+    to enter arbitary values use this command "python3 OSPF.py -i 3 -f input.txt -o output -h 1 -a 5 -s 20" with appropriate values
+
+--> Use the Command "make clean" to clear the output files.
+

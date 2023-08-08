@@ -1,0 +1,25 @@
+// NAME: Sai Siddarth
+// Roll Number: CS20B059
+// Course: CS3205 Jan. 2023 semester
+// Lab number: 4
+// Date of submission: 05-04-2023
+// I confirm that the source file is entirely written by me without
+// resorting to any dishonest means.
+// Website(s) that I used for basic socket programming code are: <NILL>
+// URL(s): <NILL>
+
+Instructions to Run the Program and program is written in Python 
+
+To Run the Program:
+--> Open two terminals (One for Sender and Another for Receiver)
+--> Ensure that you run Receiver First and then Sender
+--> Enter the Command "python3 receiver.py <attributes> with Specific Flags" (To run Receiver file)
+    Example:
+            python3 receiver.py -d -p 12345 -n 400 -e 0.00001
+--> Enter the Command "python3 sender.py <attributes> with specific flags" (To run Sender file)
+    Example :
+            python3 sender.py -s 127.0.0.1 -d -p 12345 -l 512 -r 10 -n 400 -w 3 -b 10
+
+Observations:
+--> The Range of Start Port Number to be used is between 20000 to 60000
+--> The Outputs will be Displayed on Terminal (Only if -d is used in DEBUG MODE)

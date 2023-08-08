@@ -1,0 +1,30 @@
+Routing Table for Node No. 8 at time 20
+Destination		Path				Cost
+	0		8-0				9
+	1		8-7-2-1				12
+	2		8-7-2				9
+	3		8-6-3				10
+	4		8-4				12
+	5		8-7-5				14
+	6		8-6				6
+	7		8-7				7
+Routing Table for Node No. 8 at time 40
+Destination		Path				Cost
+	0		8-0				13
+	1		8-7-2-1				12
+	2		8-7-2				9
+	3		8-6-3				12
+	4		8-4				12
+	5		8-7-5				14
+	6		8-6				6
+	7		8-7				7
+Routing Table for Node No. 8 at time 60
+Destination		Path				Cost
+	0		8-0				9
+	1		8-7-2-1				12
+	2		8-7-2				9
+	3		8-6-3				12
+	4		8-4				12
+	5		8-7-5				14
+	6		8-6				6
+	7		8-7				7

@@ -1,0 +1,160 @@
+import time
+import random
+
+def get_crc_error(gx,mx):
+
+    index = 0
+
+    for i in range(len(mx)):
+        if mx[i] == 1:
+            index = i
+            break
+
+    qx,rx = list(),str()
+    check = False
+
+    operate = str(mx[index:index+len(gx)])
+    index = index + len(gx)
+    
+    while index <= len(mx):
+        rx = str()
+        check = False
+        qx.append(1)
+        for i in range(0,len(gx)) :
+            bit = int(operate[i]) ^ int(gx[i])
+            if check == True:
+                rx = rx + str(bit)
+            if bit==1 and check == False:
+                check = True
+                rx = rx + str(bit)
+
+        if rx == str():	
+            count = 0
+            while index + count < len(mx):
+                if mx[index + count] == str(1):
+                    break
+                qx.append(0)
+                count = count + 1
+            if index + count == len(mx):
+                rx = rx + str(mx[index:index+(len(mx)-index+1)])
+                break
+            index = index + count
+            if index+len(gx) > len(mx):
+                rx = rx + str(mx[index:index+(len(mx)-index+1)])
+                qx = qx + [0 for i in range(len(mx)-index-1)]
+                break
+            else:
+                operate = str(mx[index:index+len(gx)])
+                index = index + len(gx)
+                qx.extend([0 for i in range(len(gx)-1)])
+
+        else:
+            if index+len(gx)-len(rx) > len(mx):
+                rx = rx + str(mx[index:index+(len(mx)-index+1)])
+                qx = qx + [0 for i in range(len(mx)-index)]
+                break
+            else:
+                operate = rx + str(mx[index:index+(len(gx)-len(rx))])
+                index = index + (len(gx)-len(rx))
+                qx.extend([0 for i in range(len(gx)-len(rx)-1)])
+    return qx,rx
+
+crc = str(100000111)
+
+filename = input("Enter the file name : ")
+#filename = "input.txt"
+outputfilename1 = "CRC_computation.txt"
+outputfilename2 = "Error_Detection.txt"
+file = open(filename, "r")
+ofile1 = open(outputfilename1,"w")
+ofile2 = open(outputfilename2,"w")	
+print("File opened successfully")
+print("Generating CRC ............. in CRC_computation.txt")
+time.sleep(1)
+print("Error Detection ............. in Error_Detection.txt")
+time.sleep(1)	
+line_count = 0
+while True:
+    line = file.readline()
+    line_count = line_count + 1
+    if line == "":
+        break
+
+    #1.1
+    ofile1.write("Input #"+str(line_count)+"\n")
+    ofile1.write("\n")
+    writeline = "Input: " + line
+    ofile1.write(writeline)
+    line = line[0:128] 
+    
+    mx = str(line) + '0'*(len(crc)-1)
+    quotient,remainder = get_crc_error(crc,mx)
+    answer = str()
+    for i in range(len(mx)):
+        if i >= len(mx)-len(remainder):
+            answer = answer + str(int(remainder[i-len(mx)+len(remainder)]) ^ int(mx[i]))
+        else:
+            answer = answer + str(mx[i])
+    
+    ofile1.write("CRC: " + answer+"\n")
+    ofile1.write("\n")
+
+    #1.2a
+    ofile2.write("Input #"+str(line_count)+"\n")
+    ofile2.write("\n")
+    error_options = range(0,len(answer)-1)
+    for j in range(0,10):
+        error_introduce = random.randint(3,len(answer)-1)
+        if error_introduce % 2 == 0 :
+            error_introduce = error_introduce + 1
+        corrupted = answer
+        error_indices = random.sample(error_options,error_introduce)
+        for i in range(len(error_indices)):
+            index = error_indices[i]
+            if answer[index] == '0':
+                corrupted = corrupted[0:index] + '1' + corrupted[index+1:]
+            else:
+                corrupted = corrupted[0:index] + '0' + corrupted[index+1:]
+        ofile2.write("Original String: " + line + "\n")
+        ofile2.write("Original String with CRC: " + answer + "\n")
+        ofile2.write("Corrupted String: " + corrupted + "\n")
+        ofile2.write("Number of Errors Introduced: " + str(error_introduce) + "\n")
+        
+        quotient_check,remainder_check = get_crc_error(crc,corrupted)
+
+        if remainder_check == str():
+            ofile2.write("CRC Check: Failed\n")
+        else:
+            ofile2.write("CRC Check: Passed\n")
+        ofile2.write("\n")
+        
+    #1.2b
+    for j in range(0,5):
+        new_corrupted = answer
+        select_index = random.randint(100,110)
+        change_bit = str()
+        for i in range(0,6):
+            if new_corrupted[select_index+i] == '0':
+                change_bit = change_bit + '1'
+            elif new_corrupted[select_index+i] == '1':
+                change_bit = change_bit + '0'
+        new_corrupted = new_corrupted[0:select_index] + change_bit + new_corrupted[select_index+6:]
+
+        ofile2.write("Original String: " + line + "\n")
+        ofile2.write("Original String with CRC: " + answer + "\n")
+        ofile2.write("Corrupted String: " + new_corrupted + "\n")
+        
+        quotient_check,remainder_check = get_crc_error(crc,new_corrupted)
+
+        if remainder_check == str():
+            ofile2.write("CRC Check: Failed\n")
+        else:
+            ofile2.write("CRC Check: Passed\n")
+        ofile2.write("\n")
+
+
+file.close()
+ofile1.close()
+ofile2.close()
+
+print("CRC and Error Detection execute successfully")

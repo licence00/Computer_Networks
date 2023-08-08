@@ -1,0 +1,13 @@
+Instructions to Run the Client-Server Programs : (Open Two Terminals Simultaneously)
+
+Run Server :
+
+1.) Open Terminal and use the command "python3 Q3Server.py" to compile Server.py
+    (No need to give IP address and Port Number as they are assigned to Default Values)
+
+
+Run Client :
+
+1.) Open Terminal and use the command "python3 Q3Client.py" to compile Client.py
+2.) Enter the Name of the File
+3.) Enter the Value of N

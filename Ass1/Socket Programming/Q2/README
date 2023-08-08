@@ -1,0 +1,12 @@
+Instructions to Run the Client-Server Programs : (Open Two Terminals Simultaneously)
+
+Run Server :
+
+1.) Open Terminal and use the command "python3 Q2Server.py" to compile Server.py
+    (No need to give IP address and Port Number as they are assigned to Default Values)
+
+Run Client :
+
+1.) Open Terminal and use the command "python3 Q2Client.py" to compile Client.py
+2.) Enter the Command in the terminal
+    (Examples : Add val1 val2 , mul val1 val2)

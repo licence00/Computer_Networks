@@ -1,0 +1,22 @@
+/*
+    NAME: Sai Siddarth Peta
+    Roll Number: CS20B059
+    Course: CS3205 Jan. 2023 semester
+    Lab number: 2
+    Date of submission: 04-03-2023
+    I confirm that the source file is entirely written by me without resorting to any dishonest means.
+    Website(s) that I used for basic socket programming code are:
+    URL(s): None
+*/
+
+Instructions to Run the Program and program is written in Python 
+
+To Run the Program:
+--> Use the Command "make run" to run the program
+--> Enter the (Input file name) and (Start Port Number)
+--> Use the Command "make clean" to clean the output files
+
+Observations:
+--> The Range of Start Port Number to be used is between 20000 to 60000
+--> The Outputs file will be generated in the same directory as the input file ("TDS.output", "NR.output", "ADS.output" , "TLD.output")
+--> The Message of the Client Socket will be displayed in the terminal

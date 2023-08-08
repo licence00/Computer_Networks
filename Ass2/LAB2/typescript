@@ -1,0 +1,33 @@
+Script started on 2023-03-04 21:58:31+05:30 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="120" LINES="30"]
+[?2004h]0;root@SaiSiddarth: ~/network/Ass2/LAB2root@SaiSiddarth:~/network/Ass2/LAB2# make run
+[?2004l
+python3 lab2-CS20B059.py
+Enter the Start Port Number : 12345
+Enter the Input File Name : input.txt
+Enter the Message : www.bank.com
+Response Sent : www.bank.com to Address ('127.0.0.1', 12398)
+The IP Address from DNS Server is : 202.15.5.1
+Enter the Message : smtp.shop.com
+Response Sent : smtp.shop.com to Address ('127.0.0.1', 12398)
+The IP Address from DNS Server is : 133.54.5.2
+Enter the Message : ftp.store.com
+Response Sent : ftp.store.com to Address ('127.0.0.1', 12398)
+The IP Address from DNS Server is : 143.11.5.23
+Enter the Message : sshd1.mynah.edu
+Response Sent : sshd1.mynah.edu to Address ('127.0.0.1', 12398)
+The IP Address from DNS Server is : 198.167.5.4
+Enter the Message : vpn.brown.edu
+Response Sent : vpn.brown.edu to Address ('127.0.0.1', 12398)
+The IP Address from DNS Server is : 192.13.5.5
+Enter the Message : sshd1.cougar.edu
+Response Sent : sshd1.cougar.edu to Address ('127.0.0.1', 12398)
+The IP Address from DNS Server is : 212.18.45.4
+Enter the Message : ww.abank.com
+Response Sent : ww.abank.com to Address ('127.0.0.1', 12398)
+No Mapping Found to the Site
+Enter the Message : bye
+[?2004h]0;root@SaiSiddarth: ~/network/Ass2/LAB2root@SaiSiddarth:~/network/Ass2/LAB2# exit
+[?2004l
+exit
+
+Script done on 2023-03-04 21:59:46+05:30 [COMMAND_EXIT_CODE="0"]
